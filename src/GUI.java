@@ -77,7 +77,7 @@ public class GUI {
 			try {
 				doc = Jsoup
 						.connect(
-								"http://it.fakenamegenerator.com/advanced.php?t=country&n%5B%5D=it&c%5B%5D=it&gen=80&age-min=19&age-max=35")
+								"http://it.fakenamegenerator.com/advanced.php?t=country&n%5B%5D=it&c%5B%5D=it&gen=100&age-min=19&age-max=35")
 						.get();
 				String fullName = doc.select(".address h3").text();
 				String firstName = URLEncoder.encode(fullName.split(" ")[0], "UTF-8");
