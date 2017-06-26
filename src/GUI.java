@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -8,7 +9,6 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -24,8 +25,6 @@ import javax.swing.JOptionPane;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-
-import java.awt.BorderLayout;
 
 public class GUI {
 
@@ -107,9 +106,9 @@ public class GUI {
 
 		private void sendPostRequest(String firstName, String lastName, String city, String prov, String day,
 				String year, String month) throws IOException {
-			String url = "http://www.codicefiscale.com";
+			String url = "https://www.codicefiscale.com";
 			URL obj = new URL(url);
-			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+			HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
 			con.setRequestMethod("POST");
 			con.setRequestProperty("User-Agent",
